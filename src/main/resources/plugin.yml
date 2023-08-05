@@ -1,14 +1,15 @@
-name: ItemEditorPlus
+name: ItemEditor
 version: '${project.version}'
-main: at.dumphey.itemeditorplus.ItemEditorPlus
+main: at.dumphey.itemeditor.ItemEditor
 api-version: 1.13
-prefix: IEPLUS
+prefix: ItemEditor
 authors: [ Dumphey ]
 description: Advanced Item Editor plugin to create and handle custom items.
 website: https://www.spigotmc.org/members/dumphey.42048/
+softdepend: [ PlaceholderAPI ]
 commands:
   itemeditor:
-    description: ItemEditorPlus management command
+    description: Item Editor management command
     usage: /ie
     aliases: [ ie ]
-    permission: itemeditor.main
+    permission: ie.*
