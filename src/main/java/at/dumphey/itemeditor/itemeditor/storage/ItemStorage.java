@@ -37,13 +37,13 @@ public class ItemStorage {
                 loadItem(file);
             } catch (IOException | ClassNotFoundException e) {
                 ItemEditor.getInstance()
-                              .getLogger()
-                              .log(Level.SEVERE, "Error while loading item from file " + file.toPath(), e);
+                        .getLogger()
+                        .log(Level.SEVERE, "Error while loading item from file " + file.toPath(), e);
             }
         }
         ItemEditor.getInstance()
-                      .getLogger()
-                      .log(Level.INFO, String.format("Loaded %d items from storage.", storedItems.size()));
+                .getLogger()
+                .log(Level.INFO, String.format("Loaded %d items from storage.", storedItems.size()));
     }
 
     private Path getStoragePath() {
@@ -99,8 +99,18 @@ public class ItemStorage {
 
     }
 
+    private static String padBase64String(String base64String) {
+        int padding = (4 - base64String.length() % 4) % 4;
+        StringBuilder paddedBase64 = new StringBuilder(base64String);
+        for (int i = 0; i < padding; i++) {
+            paddedBase64.append("=");
+        }
+        return paddedBase64.toString();
+    }
+
     private SerializedItem deserializeItem(String data) throws IOException, ClassNotFoundException {
-        ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64Coder.decodeLines(data));
+        String paddedData = padBase64String(data);
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(Base64.getDecoder().decode(paddedData));
         BukkitObjectInputStream dataInput = new BukkitObjectInputStream(inputStream);
         String name = dataInput.readUTF();
         ItemStack item = (ItemStack) dataInput.readObject();
