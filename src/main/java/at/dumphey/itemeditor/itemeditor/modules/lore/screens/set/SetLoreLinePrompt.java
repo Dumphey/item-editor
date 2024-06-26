@@ -15,7 +15,7 @@ public class SetLoreLinePrompt extends ChatPrompt {
     private final int index;
 
     public SetLoreLinePrompt(Player player, int index) {
-        super(player, Messages.CHAT_PREFIX + "Enter a new text for line " + (index + 1) + ".", true);
+        super(player, Messages.CHAT_PREFIX + "Enter a new text for line " + (index + 1) + ". §7§o(To create an empty line, write §f&f§7§o)", true);
         this.index = index;
     }
 

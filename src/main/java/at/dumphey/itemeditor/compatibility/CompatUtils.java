@@ -30,7 +30,7 @@ public class CompatUtils {
         minorVersion = Integer.parseInt(parts[1]);
         ItemEditor.getInstance()
                 .getLogger()
-                .log(Level.INFO, "Detected major version " + majorVersion + " and minor version " + minorVersion);
+                .log(Level.INFO, "Detected spigot 1." + majorVersion + "." + minorVersion);
     }
 
     public static boolean isAir(ItemStack itemStack) {

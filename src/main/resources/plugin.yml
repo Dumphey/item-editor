@@ -1,4 +1,4 @@
-name: ItemEditor
+name: ItemEditor2
 version: '${project.version}'
 main: at.dumphey.itemeditor.ItemEditor
 api-version: 1.13

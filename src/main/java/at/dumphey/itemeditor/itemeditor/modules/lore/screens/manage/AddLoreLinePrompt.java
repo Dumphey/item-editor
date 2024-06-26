@@ -11,7 +11,7 @@ import java.util.List;
 
 public class AddLoreLinePrompt extends ChatPrompt {
     public AddLoreLinePrompt(Player player) {
-        super(player, Messages.CHAT_PREFIX + "Enter the line that will be added to the item lore.", true);
+        super(player, Messages.CHAT_PREFIX + "Enter the line that will be added to the item lore. §7§o(To create an empty line, write §f&f§7§o)", true);
     }
 
     @Override
