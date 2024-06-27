@@ -28,6 +28,7 @@ public class ItemStorage {
 
         final Path storagePath = getStoragePath();
         final File storageFolder = new File(storagePath.toUri());
+
         if (!storageFolder.exists()) {
             storageFolder.mkdirs();
         }
@@ -35,7 +36,7 @@ public class ItemStorage {
         for (File file : storageFolder.listFiles()) {
             try {
                 loadItem(file);
-            } catch (IOException | ClassNotFoundException e) {
+            } catch (Exception e) { // make sure to catch any weird errors
                 ItemEditor.getInstance()
                         .getLogger()
                         .log(Level.SEVERE, "Error while loading item from file " + file.toPath(), e);

@@ -37,7 +37,7 @@ public class ItemEditorCommand implements CommandExecutor, TabCompleter {
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         final boolean isPlayer = sender instanceof Player;
         if (!sender.hasPermission(Permissions.WILDCARD)) {
-            Messages.send(sender, "§cYou are not permitted.");
+            Messages.send(sender, "§cNo permission.");
             return true;
         }
         if (args.length == 0) {

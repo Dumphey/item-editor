@@ -1,5 +1,6 @@
 package at.dumphey.itemeditor.utils;
 
+import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
@@ -71,6 +72,11 @@ public class ItemBuilder {
     }
 
     public ItemBuilder editMeta(Consumer<ItemMeta> consumer) {
+        if (itemStack.getItemMeta() == null) {
+            // make sure the item has a meta
+            itemStack.setItemMeta(Bukkit.getItemFactory().getItemMeta(itemStack.getType()));
+        }
+
         final ItemMeta meta = itemStack.getItemMeta();
         consumer.accept(meta);
         itemStack.setItemMeta(meta);
@@ -115,7 +121,7 @@ public class ItemBuilder {
         editMeta(meta -> {
             if (meta instanceof Damageable) {
                 ((Damageable) meta).setDamage(
-                        (itemStack.getType().getMaxDurability() - durability));
+                        (Math.max(itemStack.getType().getMaxDurability() - durability, 0))); // ensure durability is never negative!
             }
         });
 
