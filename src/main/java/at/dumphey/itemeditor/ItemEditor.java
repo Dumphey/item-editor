@@ -1,5 +1,6 @@
 package at.dumphey.itemeditor;
 
+import at.dumphey.itemeditor.compatibility.VersionUtils;
 import at.dumphey.itemeditor.events.InventoryClickListener;
 import at.dumphey.itemeditor.events.PlayerChatListener;
 import at.dumphey.itemeditor.events.PlayerQuitListener;
@@ -19,6 +20,11 @@ public final class ItemEditor extends JavaPlugin {
 
     public ItemEditor() {
         instance = this;
+    }
+
+    @Override
+    public void onLoad() {
+        VersionUtils.ensureCorrectMinecraftVersion();
     }
 
     @Override

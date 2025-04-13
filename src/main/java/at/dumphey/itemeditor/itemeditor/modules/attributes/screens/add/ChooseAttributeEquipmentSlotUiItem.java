@@ -1,11 +1,9 @@
 package at.dumphey.itemeditor.itemeditor.modules.attributes.screens.add;
 
-import at.dumphey.itemeditor.compatibility.CompatUtils;
 import at.dumphey.itemeditor.itemeditor.modules.attributes.items.AttributeUiItem;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
 import at.dumphey.itemeditor.utils.NameUtils;
-import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
@@ -26,7 +24,7 @@ public class ChooseAttributeEquipmentSlotUiItem extends AttributeUiItem {
 
     @Override
     protected ItemStack onRender() {
-        return ItemBuilder.uiItem(CompatUtils.either(fancyEquipmentSlotMaterials.get(equipmentSlot), Material.PAPER),
+        return ItemBuilder.uiItem(AttributeUiItem.getEquipmentSlotMaterial(equipmentSlot),
                 NameUtils.enumToFriendlyName(equipmentSlot.name()), "Click to choose this equipment slot");
     }
 

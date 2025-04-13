@@ -1,13 +1,11 @@
 package at.dumphey.itemeditor.itemeditor.modules.attributes.screens.remove;
 
-import at.dumphey.itemeditor.compatibility.CompatUtils;
 import at.dumphey.itemeditor.itemeditor.modules.attributes.items.AttributeUiItem;
 import at.dumphey.itemeditor.itemeditor.modules.attributes.screens.manage.ManageAttributesUiScreen;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
 import at.dumphey.itemeditor.utils.Messages;
 import at.dumphey.itemeditor.utils.NameUtils;
-import org.bukkit.Material;
 import org.bukkit.attribute.Attribute;
 import org.bukkit.attribute.AttributeModifier;
 import org.bukkit.entity.Player;
@@ -27,7 +25,7 @@ public class RemoveAttributeUiItem extends AttributeUiItem {
 
     @Override
     protected ItemStack onRender() {
-        return ItemBuilder.of(CompatUtils.either(fancyAttributeMaterials.get(attribute), Material.PAPER))
+        return ItemBuilder.of(AttributeUiItem.getAttributeMaterial(attribute))
                 .withName("§e" + NameUtils.enumToFriendlyName(attribute))
                 .withLore("§fSlot: §e" + NameUtils.enumToFriendlyName(modifier.getSlot()),
                         "§fOperation: §e" + NameUtils.enumToFriendlyName(modifier.getOperation()),

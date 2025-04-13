@@ -5,6 +5,7 @@ import at.dumphey.itemeditor.itemeditor.modules.flags.screens.remove.RemoveItemF
 import at.dumphey.itemeditor.ui.template.UiItem;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -17,7 +18,7 @@ public class OpenRemoveItemFlagUiItem extends UiItem {
 
     @Override
     protected ItemStack onRender() {
-        return ItemBuilder.of(ItemEditor.INSTANCE.getCompatUtils().getRemoveItemFlagUiItemMaterial())
+        return ItemBuilder.of(Material.CRIMSON_SIGN)
                 .withName("§eRemove item flag")
                 .withAllHideFlags()
                 .withLore("§8§l* §8Remove an item flag")

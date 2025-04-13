@@ -18,8 +18,16 @@ public class UiUtils {
                 .collect(Collectors.toList());
     }
 
-    public static <E extends Enum<E>> List<E> sortedByEnumName(Collection<E> values) {
-        return values.stream().sorted(Comparator.comparing(Enum::name)).collect(Collectors.toList());
+    public static <T> List<T> sortedByEnumName(Collection<T> values) {
+        return values.stream()
+                .sorted(Comparator.comparing(value -> {
+                    try {
+                        return (String) value.getClass().getMethod("name").invoke(value);
+                    } catch (Exception e) {
+                        throw new RuntimeException(e);
+                    }
+                }))
+                .collect(Collectors.toList());
     }
 
     public static List<UiItem> sortedByName(Collection<UiItem> items) {

@@ -1,13 +1,13 @@
 package at.dumphey.itemeditor.itemeditor.modules.flags.screens.add;
 
-import at.dumphey.itemeditor.itemeditor.modules.flags.screens.manage.ManageItemFlagsUiScreen;
-import at.dumphey.itemeditor.utils.Messages;
 import at.dumphey.itemeditor.itemeditor.ItemEditor;
 import at.dumphey.itemeditor.itemeditor.modules.flags.ItemFlagUtils;
+import at.dumphey.itemeditor.itemeditor.modules.flags.screens.manage.ManageItemFlagsUiScreen;
 import at.dumphey.itemeditor.ui.template.UiItem;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
-import org.apache.commons.lang.StringUtils;
+import at.dumphey.itemeditor.utils.Messages;
+import at.dumphey.itemeditor.utils.NameUtils;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemFlag;
@@ -22,15 +22,15 @@ public class AddItemFlagUiItem extends UiItem {
     public AddItemFlagUiItem(UiScreen screen, Player player, ItemFlag itemFlag) {
         super(screen, player);
         this.itemFlag = itemFlag;
-        name = StringUtils.capitalize(itemFlag.name().replace("_", " ").toLowerCase());
+        name = NameUtils.capitalize(itemFlag.name().replace("_", " ").toLowerCase());
     }
 
     @Override
     protected ItemStack onRender() {
         return ItemBuilder.of(ItemFlagUtils.getMaterial(itemFlag))
-                          .withName("§e" + name)
-                          .withLore("§8§l* §8Click to §aadd §8the item flag.")
-                          .build();
+                .withName("§e" + name)
+                .withLore("§8§l* §8Click to §aadd §8the item flag.")
+                .build();
     }
 
 

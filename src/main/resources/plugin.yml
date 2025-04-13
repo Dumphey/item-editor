@@ -1,7 +1,7 @@
 name: ItemEditor
 version: '${project.version}'
 main: at.dumphey.itemeditor.ItemEditor
-api-version: 1.13
+api-version: 1.20
 prefix: ItemEditor
 authors: [ Dumphey ]
 description: Advanced Item Editor plugin to create and handle custom items.

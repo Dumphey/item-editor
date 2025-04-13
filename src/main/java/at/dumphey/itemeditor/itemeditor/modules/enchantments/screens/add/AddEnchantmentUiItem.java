@@ -23,12 +23,12 @@ public class AddEnchantmentUiItem extends UiItem {
     @Override
     protected ItemStack onRender() {
         return ItemBuilder.of(EnchantUtils.getMaterial(enchantment))
-                          .withName("§e" + NameUtils.enumToFriendlyName(enchantment.getKey().getKey()))
-                          .withLore("§7Vanilla start level: §o" + enchantment.getStartLevel(),
-                                  "§7Vanilla max level: §o" + enchantment.getMaxLevel(),
-                                  "",
-                                  "§8§l* §8Click to §aadd §8enchantment")
-                          .build();
+                .withName("§e" + NameUtils.enumToFriendlyName(enchantment.getKey().getKey()))
+                .withLore("§7Vanilla start level: §o" + enchantment.getStartLevel(),
+                        "§7Vanilla max level: §o" + enchantment.getMaxLevel(),
+                        "",
+                        "§8§l* §8Click to §aadd §8enchantment")
+                .build();
     }
 
     @Override

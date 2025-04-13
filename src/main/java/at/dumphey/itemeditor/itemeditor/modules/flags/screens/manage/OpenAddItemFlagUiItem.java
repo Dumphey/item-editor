@@ -5,6 +5,7 @@ import at.dumphey.itemeditor.itemeditor.modules.flags.screens.add.AddItemFlagUiS
 import at.dumphey.itemeditor.ui.template.UiItem;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -17,7 +18,7 @@ public class OpenAddItemFlagUiItem extends UiItem {
 
     @Override
     protected ItemStack onRender() {
-        return ItemBuilder.uiItemBuilder(ItemEditor.INSTANCE.getCompatUtils().getAddItemFlagUiItemMaterial(),
+        return ItemBuilder.uiItemBuilder(Material.WARPED_SIGN,
                 "§eAdd item flag", "Add an item flag").withAllHideFlags().build();
     }
 

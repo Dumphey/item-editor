@@ -1,6 +1,6 @@
 package at.dumphey.itemeditor.itemeditor;
 
-import at.dumphey.itemeditor.compatibility.CompatUtils;
+import at.dumphey.itemeditor.compatibility.VersionUtils;
 import at.dumphey.itemeditor.itemeditor.modules.home.HomeUiScreen;
 import at.dumphey.itemeditor.itemeditor.storage.ItemStorage;
 import at.dumphey.itemeditor.ui.prompts.PromptHandler;
@@ -25,14 +25,14 @@ public class ItemEditor implements Listener {
 
     private final UiManager uiManager;
     private final PromptHandler promptHandler;
-    private final CompatUtils compatUtils;
+    private final VersionUtils compatUtils;
     private final ItemStorage itemStorage;
     private final Map<UUID, ItemStack> editing = new HashMap<>();
 
     public ItemEditor() {
         this.uiManager = new UiManager();
         this.promptHandler = new PromptHandler();
-        this.compatUtils = new CompatUtils();
+        this.compatUtils = new VersionUtils();
         this.itemStorage = new ItemStorage();
     }
 
@@ -65,7 +65,7 @@ public class ItemEditor implements Listener {
         return promptHandler;
     }
 
-    public CompatUtils getCompatUtils() {
+    public VersionUtils getCompatUtils() {
         return compatUtils;
     }
 

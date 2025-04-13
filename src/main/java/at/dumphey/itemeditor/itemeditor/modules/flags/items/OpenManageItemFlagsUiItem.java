@@ -5,6 +5,7 @@ import at.dumphey.itemeditor.itemeditor.modules.flags.screens.manage.ManageItemF
 import at.dumphey.itemeditor.ui.template.UiItem;
 import at.dumphey.itemeditor.ui.template.UiScreen;
 import at.dumphey.itemeditor.utils.ItemBuilder;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 import org.bukkit.inventory.ItemStack;
@@ -17,7 +18,7 @@ public class OpenManageItemFlagsUiItem extends UiItem {
 
     @Override
     protected ItemStack onRender() {
-        return ItemBuilder.uiItem(ItemEditor.INSTANCE.getCompatUtils().getSignMaterial(), "Manage item flags",
+        return ItemBuilder.uiItem(Material.OAK_SIGN, "Manage item flags",
                 "Add or remove item flags");
     }
 

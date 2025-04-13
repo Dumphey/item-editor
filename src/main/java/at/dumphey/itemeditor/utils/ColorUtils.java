@@ -1,6 +1,5 @@
 package at.dumphey.itemeditor.utils;
 
-import at.dumphey.itemeditor.itemeditor.ItemEditor;
 import org.bukkit.ChatColor;
 
 import java.lang.reflect.InvocationTargetException;
@@ -14,9 +13,6 @@ public class ColorUtils {
 
     public static String translateColors(String value) {
         value = ChatColor.translateAlternateColorCodes('&', value);
-        if (ItemEditor.INSTANCE.getCompatUtils().getMajorVersion() < 16) {
-            return value;
-        }
 
         Matcher matcher = COLOR_PATTERN.matcher(value);
         while (matcher.find()) {

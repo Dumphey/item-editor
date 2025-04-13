@@ -34,7 +34,7 @@ public class EnterAttributeModifierValuePrompt extends ChatPrompt {
     protected void onFulfilled(String input) {
         double val = Double.parseDouble(input);
 
-        modifyItem(item -> ItemBuilder.of(item).withAttribute(attribute, new AttributeModifier(UUID.randomUUID(), attribute.name(), val, operation, equipmentSlot)).build());
+        modifyItem(item -> ItemBuilder.of(item).withAttribute(attribute, new AttributeModifier(UUID.randomUUID(), attribute.name(), val, operation, equipmentSlot.getGroup())).build());
         Messages.send(player, "Added attribute §o" + NameUtils.enumToFriendlyName(attribute) + "§f for slot §o" + NameUtils.enumToFriendlyName(equipmentSlot) + "§f with value §o" + val + " §fand operation §o" + NameUtils.enumToFriendlyName(operation) + "§f.");
         open(new ManageAttributesUiScreen(player));
     }

@@ -1,7 +1,6 @@
 package at.dumphey.itemeditor.commands;
 
 import at.dumphey.itemeditor.ItemEditor;
-import at.dumphey.itemeditor.compatibility.CompatUtils;
 import at.dumphey.itemeditor.itemeditor.modules.list.ItemListUiScreen;
 import at.dumphey.itemeditor.itemeditor.storage.SerializedItem;
 import at.dumphey.itemeditor.utils.Messages;
@@ -184,7 +183,7 @@ public class ItemEditorCommand implements CommandExecutor, TabCompleter {
 
         String name = args[1];
 
-        if (CompatUtils.isAir(player.getInventory().getItemInMainHand())) {
+        if (player.getInventory().getItemInMainHand().getType() == Material.AIR) {
             Messages.send(player, "§cYou need to hold an item in your main hand.");
             return;
         }
